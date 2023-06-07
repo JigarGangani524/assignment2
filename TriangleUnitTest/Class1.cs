@@ -149,6 +149,100 @@ public class TriangleTests
         Assert.AreEqual("The triangle is valid and is a SCALENE", result);
     }
 
+    /* Verifying a zero length for one or more sides */
+    [Test]
+    public void TestInvalidTriangle_ZeroLengthSide()
+    {
+        // Arrange
+        int firstSide = 5;
+        int secondSide = 0;
+        int thirdSide = 4;
+        string expectedOutput = "At least one side of your triangle has a zero length and is thus invalid";
+
+        // Act
+        string actualOutput = Triangle.AnalyzeTriangle(firstSide, secondSide, thirdSide);
+
+        // Assert
+        Assert.AreEqual(expectedOutput, actualOutput);
+    }
+
+    [Test]
+    public void TestInvalidTriangle_AllSidesZeroLength()
+    {
+        // Arrange
+        int firstSide = 0;
+        int secondSide = 0;
+        int thirdSide = 0;
+        string expectedOutput = "At least one side of your triangle has a zero length and is thus invalid";
+
+        // Act
+        string actualOutput = Triangle.AnalyzeTriangle(firstSide, secondSide, thirdSide);
+
+        // Assert
+        Assert.AreEqual(expectedOutput, actualOutput);
+    }
+
+    [Test]
+    public void TestValidTriangle_NoZeroLengthSide()
+    {
+        // Arrange
+        int firstSide = 3;
+        int secondSide = 4;
+        int thirdSide = 5;
+        string expectedOutput = "The triangle is valid and is a SCALENE";
+
+        // Act
+        string actualOutput = Triangle.AnalyzeTriangle(firstSide, secondSide, thirdSide);
+
+        // Assert
+        Assert.AreEqual(expectedOutput, actualOutput);
+    }
+
+    /* Verifying an invalid response (other than a zero length) */
+    [Test]
+    public void TestInvalidTriangle_NegativeSides()
+    {
+        // Arrange
+        int firstSide = -1;
+        int secondSide = 2;
+        int thirdSide = 3;
+
+        // Act
+        string result = Triangle.AnalyzeTriangle(firstSide, secondSide, thirdSide);
+
+        // Assert
+        Assert.AreEqual("A triangle cannot be formed with those numbers", result);
+    }
+
+    [Test]
+    public void TestInvalidTriangle_SumOfTwoSidesEqualThirdSide()
+    {
+        // Arrange
+        int firstSide = 3;
+        int secondSide = 4;
+        int thirdSide = 7;
+
+        // Act
+        string result = Triangle.AnalyzeTriangle(firstSide, secondSide, thirdSide);
+
+        // Assert
+        Assert.AreEqual("A triangle cannot be formed with those numbers", result);
+    }
+
+    [Test]
+    public void TestInvalidTriangle_SumOfTwoSidesLessThanThirdSide()
+    {
+        // Arrange
+        int firstSide = 1;
+        int secondSide = 2;
+        int thirdSide = 5;
+
+        // Act
+        string result = Triangle.AnalyzeTriangle(firstSide, secondSide, thirdSide);
+
+        // Assert
+        Assert.AreEqual("A triangle cannot be formed with those numbers", result);
+    }
 
 }
 
