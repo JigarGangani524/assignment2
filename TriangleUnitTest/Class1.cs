@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using TriangleSolver;
 
+[TestFixture]
 public class TriangleTests
 {
+
     /* Valid equilateral triangle */
     [Test]
     public void AnalyzeTriangle_ValidEquilateral_ReturnsEquilateral()
@@ -29,7 +31,7 @@ public class TriangleTests
 
     /* Valid isosceles triangle */
     [Test]
-    public void AnalyzeTriangle_ValidIsosceles_ReturnsIsosceles()
+    public void AnalyzeTriangle_ValidIsosceles_Input4and4and9_ReturnIsoscelesTriangle()
     {
         // Arrange
         int firstSide = 5;
@@ -44,7 +46,7 @@ public class TriangleTests
     }
 
     [Test]
-    public void AnalyzeTriangle_ValidIsosceles_ReturnsIsosceles2()
+    public void AnalyzeTriangle_ValidIsosceles_Inputand3and4and4_ReturnIsoscelesTriangle()
     {
         // Arrange
         int firstSide = 3;
@@ -59,12 +61,12 @@ public class TriangleTests
     }
 
     [Test]
-    public void AnalyzeTriangle_ValidIsosceles_ReturnsIsosceles3()
+    public void AnalyzeTriangle_ValidIsosceles_Input4and5and4_ReturnIsoscelesTriangle()
     {
         // Arrange
-        int firstSide = 5;
-        int secondSide = 6;
-        int thirdSide = 5;
+        int firstSide = 4;
+        int secondSide = 5;
+        int thirdSide = 4;
 
         // Act
         string result = Triangle.AnalyzeTriangle(firstSide, secondSide, thirdSide);
@@ -75,12 +77,12 @@ public class TriangleTests
 
     /* Valid scalene triangle */
     [Test]
-    public void ValidScaleneTriangle_Test1()
+    public void AnalyzeTriangle_ValidScaleneTriangle_Input4and6and8_ReturnScaleneTriangle()
     {
         // Arrange
-        int firstSide = 5;
-        int secondSide = 7;
-        int thirdSide = 9;
+        int firstSide = 4;
+        int secondSide = 6;
+        int thirdSide = 8;
 
         // Act
         string result = Triangle.AnalyzeTriangle(firstSide, secondSide, thirdSide);
@@ -90,12 +92,12 @@ public class TriangleTests
     }
 
     [Test]
-    public void ValidScaleneTriangle_Test2()
+    public void AnalyzeTriangle_ValidScaleneTriangle_Input9and12and15_ReturnScaleneTriangle()
     {
         // Arrange
-        int firstSide = 8;
-        int secondSide = 11;
-        int thirdSide = 14;
+        int firstSide = 9;
+        int secondSide = 12;
+        int thirdSide = 15;
 
         // Act
         string result = Triangle.AnalyzeTriangle(firstSide, secondSide, thirdSide);
@@ -105,12 +107,12 @@ public class TriangleTests
     }
 
     [Test]
-    public void ValidScaleneTriangle_Test3()
+    public void AnalyzeTriangle_ValidScaleneTriangle_Input4and5and6_ReturnScaleneTriangle()
     {
         // Arrange
-        int firstSide = 3;
-        int secondSide = 4;
-        int thirdSide = 5;
+        int firstSide = 4;
+        int secondSide = 5;
+        int thirdSide = 6;
 
         // Act
         string result = Triangle.AnalyzeTriangle(firstSide, secondSide, thirdSide);
@@ -120,7 +122,7 @@ public class TriangleTests
     }
 
     [Test]
-    public void ValidScaleneTriangle_Test4()
+    public void AnalyzeTriangle_ValidScaleneTriangle_Input7and10and12_ReturnScaleneTriangle()
     {
         // Arrange
         int firstSide = 7;
@@ -135,12 +137,12 @@ public class TriangleTests
     }
 
     [Test]
-    public void ValidScaleneTriangle_Test5()
+    public void AnalyzeTriangle_ValidScaleneTriangle_Input10and15and17_ReturnScaleneTriangle()
     {
         // Arrange
-        int firstSide = 9;
-        int secondSide = 14;
-        int thirdSide = 16;
+        int firstSide = 10;
+        int secondSide = 15;
+        int thirdSide = 17;
 
         // Act
         string result = Triangle.AnalyzeTriangle(firstSide, secondSide, thirdSide);
@@ -151,7 +153,7 @@ public class TriangleTests
 
     /* Verifying a zero length for one or more sides */
     [Test]
-    public void TestInvalidTriangle_ZeroLengthSide()
+    public void AnalyzeTriangle_TestInvalidTriangle_ZeroLengthSide()
     {
         // Arrange
         int firstSide = 5;
@@ -167,7 +169,7 @@ public class TriangleTests
     }
 
     [Test]
-    public void TestInvalidTriangle_AllSidesZeroLength()
+    public void AnalyzeTriangle_TestInvalidTriangle_AllSidesZeroLength()
     {
         // Arrange
         int firstSide = 0;
@@ -183,7 +185,7 @@ public class TriangleTests
     }
 
     [Test]
-    public void TestValidTriangle_NoZeroLengthSide()
+    public void AnalyzeTriangle_TestValidTriangle_NoZeroLengthSide()
     {
         // Arrange
         int firstSide = 3;
@@ -198,9 +200,10 @@ public class TriangleTests
         Assert.AreEqual(expectedOutput, actualOutput);
     }
 
+
     /* Verifying an invalid response (other than a zero length) */
     [Test]
-    public void TestInvalidTriangle_NegativeSides()
+    public void AnalyzeTriangle_TestInvalidTriangle_NegativeSides()
     {
         // Arrange
         int firstSide = -1;
@@ -215,7 +218,7 @@ public class TriangleTests
     }
 
     [Test]
-    public void TestInvalidTriangle_SumOfTwoSidesEqualThirdSide()
+    public void AnalyzeTriangle_TestInvalidTriangle_SumOfTwoSidesEqualThirdSide()
     {
         // Arrange
         int firstSide = 3;
@@ -230,7 +233,7 @@ public class TriangleTests
     }
 
     [Test]
-    public void TestInvalidTriangle_SumOfTwoSidesLessThanThirdSide()
+    public void AnalyzeTriangle_TestInvalidTriangle_SumOfTwoSidesLessThanThirdSide()
     {
         // Arrange
         int firstSide = 1;
@@ -245,6 +248,5 @@ public class TriangleTests
     }
 
 }
-
 
 
